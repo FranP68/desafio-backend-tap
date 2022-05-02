@@ -24,7 +24,12 @@ const getGame = async(req,res) =>{
 
 const saveGame = async(req,res) =>{
     console.log("GameController => saveGame", req.body);
-    res.send("juego guardado")
+    let foundGame = games.find(game => game.game.id==req.body.game.id);
+    if(!!foundGame){
+        res.send(foundGame);
+    }else{
+        res.send({"error":"Su partida no existe. No pudo ser guardada."});
+    }
 }
 
 module.exports = {
