@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+require('dotenv').config();
+require('./database/db');
+const port = process.env.PORT || 3000;
 
 //middlewares
 app.use(express.json());
@@ -9,5 +11,5 @@ app.use(express.json());
 app.use("/", require('./routes/game'));
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Desafio tap corriendo en port ${port}`);
 })

@@ -1,34 +1,42 @@
+const { response } = require('express');
+const { updateOne } = require('../models/game');
 const Game = require('../models/game');
-var games = [];
-var id=0;
+
 const getGame = async(req,res) =>{
     console.log("GameController => getGame", req.params.id);
-
-    if(!!req.params.id){
-        //Buscar partida
-        let foundGame = games.find(game => game.game.id==req.params.id);
-        if(!!foundGame){
-            res.send(foundGame);
-        }else{
-            res.send({"error":"No se ha encontrado su partida."});
+    try {
+        if(!!req.params.id){
+            //Buscar partida
+            const foundGame= await Game.findById(req.params.id);
+            if(!!foundGame){
+                //Encontrado
+                res.status(200).json(foundGame);
+            }else{
+                throw("No se ha encontrado la partida solicitada");
+            }
         }
+        else{
+            //Nueva partida
+            let newGame = await new Game();
+            console.log("newGame", newGame);
+            await newGame.save();
+            //CREATED
+            res.status(201).json(newGame);
+        }    
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
     }
-    else{
-        //Nueva partida
-        let newGame = new Game(id);
-        id++;
-        games.push(newGame);
-        res.send(newGame);
-    }
+    
 }
 
 const saveGame = async(req,res) =>{
     console.log("GameController => saveGame", req.body);
-    let foundGame = games.find(game => game.game.id==req.body.game.id);
+    const foundGame =await Game.findByIdAndUpdate(req.body.id, req.body);
     if(!!foundGame){
-        res.send(foundGame);
+        response.status(200).send(foundGame);
     }else{
-        res.send({"error":"Su partida no existe. No pudo ser guardada."});
+        res.status(500).send({"error":"Su partida no existe. No pudo ser guardada."});
     }
 }
 

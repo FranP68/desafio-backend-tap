@@ -1,19 +1,16 @@
-class State{
-    code;
-    description;
-    constructor(){
-        this.code=1;
-        this.description="CREATED";
-    }
-}
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-const moment = require('moment')
-var Game = class Game{
-    game={ id:1, created:moment(), state:new State};
-    cells=[];
-    constructor(id){
-        this.game.id=id;
-    }
-}
+const gameSchema = new Schema({
+    game:{
+        created:{ type: Date, default: Date.now },
+        state:{
+            code:{type: Number, default:1},
+            description:{type:String, default:"CREATED"}
+        }
+    },
+    cells:[]
+})
 
+const Game = mongoose.model('Game',gameSchema);
 module.exports = Game;
