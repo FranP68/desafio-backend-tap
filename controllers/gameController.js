@@ -31,13 +31,21 @@ const getGame = async(req,res) =>{
 }
 
 const saveGame = async(req,res) =>{
-    console.log("GameController => saveGame", req.body);
-    const foundGame =await Game.findByIdAndUpdate(req.body.id, req.body);
-    if(!!foundGame){
-        response.status(200).send(foundGame);
-    }else{
-        res.status(500).send({"error":"Su partida no existe. No pudo ser guardada."});
+    try{
+        console.log("GameController => saveGame", req.body.id);
+        const foundGame = await Game.findByIdAndUpdate(req.body.id, req.body, {returnDocument:'after'});
+        console.log("GameController => saveGame => foundGame", foundGame);
+        if (!!foundGame){
+            res.status(201).json(foundGame);
+        }
+        else{
+            throw "Error. No se ha encontrado la partida a guardar.";
+        }
+    }catch(error){
+        console.log("error",error);
+        res.status(500).json(error);
     }
+    
 }
 
 module.exports = {
