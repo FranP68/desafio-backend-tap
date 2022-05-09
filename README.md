@@ -1,106 +1,67 @@
-# Título del Proyecto
+# Desafio Backend de Tap
 
-_Acá va un párrafo que describa lo que es el proyecto_
+_Desafio backend de tap sobre api rest de nodejs con mongodb_
 
 ## Comenzando 🚀
 
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
-Mira **Deployment** para conocer como desplegar el proyecto.
-
-
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+🧰 Herramientas
 
-```
-Da un ejemplo
-```
+* [Thunder Client](https://www.npmjs.com/package/express)  - Plugin VSC
+* [Insomia](https://insomnia.rest/)  - Insomnia REST API CLIENT
 
 ### Instalación 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Dí cómo será ese paso_
+_Install dependencies_
 
 ```
-Da un ejemplo
+npm i
 ```
 
-_Y repite_
+_una vez que termina las dependencias, ejecutar el comando_
 
 ```
-hasta finalizar
+npm start
 ```
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
+_Desafio tap corriendo en port 3000_
 
 ```
-Da un ejemplo
+DB conectada
 ```
 
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
+_Consumir los siguientes endpoints:_
 
 ```
-Da un ejemplo
+GET game/:id?: El parametro id es opcional. Si no es enviado se crea un nuevo juego, si es enviado busca el juego y si existe lo devuelve
+POST game: Se envia un body json con un juego. Si el juego existe, este se actualiza, sino exite se informa el error. Se corroboran que los datos de state sean validos, es decir, que no se pueda enviar un numero y una descripcion erroneas. No se realizo el matcheo de 1-CREATED, 2-WON, 3-LOST.
 ```
+## Test ⚙️
 
-## Despliegue 📦
+Se realizó un test unitario para la ruta GET.
+Para correr el test se debe correr:
+...
+npm test
+...
 
-_Agrega notas adicionales sobre como hacer deploy_
+_Testing con_
 
+```
+npm supertest
+npm mocha
+```
 ## Construido con 🛠️
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
+* [Express](https://www.npmjs.com/package/express)  - Framework web backend
+* [MongoDB](https://www.mongodb.com/) - Sistema de BD noSQL
 
-## Contribuyendo 🖇️
-
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
-
-## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
-
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## Expresiones de Gratitud 🎁
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* Dona con cripto a esta dirección: `0xf253fc233333078436d111175e5a76a649890000`
-* etc.
-
-
+#
 
 ---
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
+
+⌨️ con ❤️ por [Francisco](https://github.com/FranP68) 🌠
