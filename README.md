@@ -27,9 +27,10 @@ _una vez que termina las dependencias, ejecutar el comando_
 npm start
 ```
 
-_Desafio tap corriendo en port 3000_
+_El servidor queda corriendo_
 
 ```
+Desafio tap corriendo en port 3000
 DB conectada
 ```
 
