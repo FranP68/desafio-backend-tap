@@ -10,7 +10,7 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 🧰 Herramientas
 
-* [Thunder Client](https://www.npmjs.com/package/express)  - Plugin VSC
+* [Express](https://www.npmjs.com/package/express)  - Express
 * [Insomia](https://insomnia.rest/)  - Insomnia REST API CLIENT
 
 ### Instalación 🔧
